@@ -1,7 +1,11 @@
 import telebot
 import logging
+from os import getenv
+from dotenv import load_dotenv
 
-bot = telebot.TeleBot('***REMOVED***')
+load_dotenv()
+
+bot = telebot.TeleBot(getenv('TOKEN'))
 
 @bot.message_handler(commands=["start"])
 def start(m, res=False):
